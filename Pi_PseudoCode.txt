@@ -1,0 +1,10 @@
+Set num_points_inside_circle to 0
+Set num_points_total to n
+For i from 0 to n:
+    Generate a random x-coordinate between 0 and 1 and assign it to x
+    Generate a random y-coordinate between 0 and 1 and assign it to y
+    Calculate the squared distance from the origin to the point: distance_squared = x^2 + y^2
+    If distance_squared is less than or equal to 1:
+        Increment num_points_inside_circle
+Calculate pi_estimate as 4 * num_points_inside_circle / num_points_total
+Return pi_estimate
