@@ -16,8 +16,12 @@ class PiEstimator:
         pi_estimate = 4 * self.num_points_inside_circle / self.num_points_total
         return pi_estimate
 
-# Create a PiEstimator object with n = 1000000
-estimator = PiEstimator(1000000)
+    def main():
+        
+        # Create a PiEstimator object with n = 1000000
+        estimator = PiEstimator(1000000)
 
-# Call the estimate_pi method and print the result
-print(estimator.estimate_pi())
+        # Call the estimate_pi method and print the result
+        print(estimator.estimate_pi())
+if __name__=="__main__":
+    main()
