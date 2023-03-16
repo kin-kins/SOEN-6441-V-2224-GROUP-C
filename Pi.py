@@ -25,12 +25,27 @@ class PiEstimator:
         return pi_estimate
 
 def main():
-    # Create a PiEstimator object with n = 1000000
-    estimator = PiEstimator(1000000)
-    # Call the estimate_pi method to estimate the value of pi
-    pi_estimate = estimator.estimate_pi()
-    # Print the estimated value of pi
-    print("Estimated value of pi:", pi_estimate)
+    try:
+        # Prompt the user to enter the number of points to use for the estimation (default to 1000000)
+        n = input("Enter the number of points to use for the estimation (default 1000000): ")
+        if not n:
+            n = 1000000
+        else:
+            n = int(n)
+        if n <= 0:
+            raise ValueError("Number of points must be greater than zero.")
+        # Create a PiEstimator object with the specified number of points
+        estimator = PiEstimator(n)
+        # Call the estimate_pi method to estimate the value of pi
+        pi_estimate = estimator.estimate_pi()
+        # Print the estimated value of pi
+        print("Estimated value of pi:", pi_estimate)
+    except ValueError as e:
+        print("Error:", e)
+    except KeyboardInterrupt:
+        print("Program terminated by user.")
+    except:
+        print("An error occurred while running the program.")
 
 if __name__ == '__main__':
     main()
