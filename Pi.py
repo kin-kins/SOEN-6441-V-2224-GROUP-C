@@ -1,8 +1,10 @@
 import random
 
+
 class PiEstimator:
     def __init__(self, n):
-        # Initialize instance variables to keep track of the number of points inside the unit circle and the total number of points
+        # Initialize instance variables to keep track of the number of
+        # points inside the unit circle and the total number of points
         self.n = n
         self.num_points_inside_circle = 0
         self.num_points_total = n
@@ -19,7 +21,8 @@ class PiEstimator:
             if distance_squared <= 1:
                 # If the point is inside the unit circle, increment the counter
                 self.num_points_inside_circle += 1
-        # Calculate the estimated value of pi using the ratio of the number of points inside the circle to the total number of points
+        # Calculate the estimated value of pi
+        # using the ratio of the number of points inside the circle to the total number of points
         pi_estimate = 4 * self.num_points_inside_circle / self.num_points_total
         # Return the estimated value of pi
         return pi_estimate
@@ -46,6 +49,7 @@ def main():
         print("Program terminated by user.")
     except:
         print("An error occurred while running the program.")
+
 
 if __name__ == '__main__':
     main()
