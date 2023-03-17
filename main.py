@@ -17,12 +17,12 @@ for i in range(15):
     r = str(Coaster.get_radius())
     L = str(Coaster.get_length())
     file1.write(f"r={r}, L={L}\n")
-    s_elem = ET.SubElement(element1, f'item{i + 1}')  # adding subtag under the 'items'
-    r_elem = ET.SubElement(s_elem, f'r{i+1}')
-    l_elem = ET.SubElement(s_elem, f'l{i+1}')
+    s_elem = ET.SubElement(element1, f'item')  # adding subtag under the 'items'
+    r_elem = ET.SubElement(s_elem, 'r')
+    l_elem = ET.SubElement(s_elem, 'l')
     r_elem.text = r
     l_elem.text = L
-    # s_elem.text = s  # adding text between the 'item{i+1}
+    s_elem.text = str(i+1)  # adding text between the 'item{i+1}
 
 b_xml = ET.tostring(data)  # Converting the xml data to byte object, for allowing flushing data to file stream
 # with open("output.xml", "wb") as f:  # Opening a file, with operation mode `wb` (write + binary)
