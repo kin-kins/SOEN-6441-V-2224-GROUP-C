@@ -2,6 +2,7 @@ import random
 
 
 class HandmadeMath:
+
     @staticmethod
     def estimate_pi(n):
         """
@@ -35,6 +36,8 @@ class HandmadeMath:
         # of points inside the circle to the total number of points
         pi_estimate = 4 * num_points_inside_circle / n
         return pi_estimate
+
+    pi = estimate_pi(1000000)
 
     @staticmethod
     def factorial(x):
