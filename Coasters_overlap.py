@@ -83,6 +83,6 @@ class Coasters_overlap:
                     s (str): A string representation of the HandmadeMath object,
                             including the length of segment X1X2, alpha, r, and pi.
         """
-        s = f"The length of segment X1X2 is: {self.length}\n with alpha =  {self.alpha}\n r =  {self.r}\n pi =  {self.pi} \n"
+        s = f"The length of segment X1X2 is: {self.length}\n" #with alpha =  {self.alpha}\n r =  {self.r}\n pi =  {self.pi} \n"
         return s
 
