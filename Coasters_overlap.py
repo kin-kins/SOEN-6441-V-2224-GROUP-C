@@ -26,11 +26,10 @@ class Coasters_overlap:
         # Calculating alpha using newton Raphson method
 
         for i in range(1000):
-            alpha_new = alpha - f(alpha) / f_derivative(alpha)
-            if abs(alpha_new - alpha) < tolerance:
+            alpha_new = self.alpha - f(self.alpha) / f_derivative(self.alpha)
+            if abs(alpha_new - self.alpha) < tolerance:
                 break
-            alpha = alpha_new
-            self.alpha = alpha
+            self.alpha = alpha_new
         self.l = 2 * self.r * (1 - HandmadeMath.cos(self.alpha / 2))  # length of segment X1X2
 
     def to_string(self):
