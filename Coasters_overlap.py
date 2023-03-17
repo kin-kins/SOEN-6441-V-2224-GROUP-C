@@ -33,6 +33,7 @@ class Coasters_overlap:
             self.alpha = alpha
         self.l = 2 * self.r * (1 - HandmadeMath.cos(self.alpha / 2))  # length of segment X1X2
 
-    def print_l(self):
-        print(self.l)
+    def to_string(self):
+        s = f"The length of segment X1X2 is: {self.l}\n with alpha =  {self.alpha}\n r =  {self.r}\n pi =  {self.pi} \n"
+        return s
 
