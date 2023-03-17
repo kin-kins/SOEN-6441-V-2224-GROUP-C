@@ -64,10 +64,18 @@ class Coasters_overlap:
         radius r is asked to the user
         and the length is calculated from the other elements using the equation l= 2r(1-cos(alpha/2))
         """
-
-        self.r = float(input("Please enter the radius of the circles: "))
-        if self.r < 0:
-            raise Exception("Sorry, no numbers below zero for radius")
+        while True:
+            while True:
+                try:
+                    r = float(input("Please enter the radius of the circles: "))
+                    break
+                except ValueError:
+                    print("this is not a valid number, try again")
+            if r < 0:
+                print("Sorry, no numbers below zero for radius")
+            else:
+                break
+        self.r = r
         self.length = 2 * self.r * (1 - HandmadeMath.cos(self.alpha / 2))
 
     def to_string(self):
