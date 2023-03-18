@@ -32,5 +32,6 @@ def main():
         tree = ET.ElementTree(root)
         tree.write("pi_approximation.xml", xml_declaration=True)
 
+
 if __name__ == "__main__":
     main()

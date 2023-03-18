@@ -2,7 +2,7 @@ import math
 import xml.etree.ElementTree as ET
 
 class InbuiltMath:
-    def calculate_sine(self, angle):
+    def sin(self, angle):
         """
         Calculates the sine of a given angle in radians using the math.sin() function.
 
@@ -14,7 +14,7 @@ class InbuiltMath:
         """
         return math.sin(angle)
 
-    def calculate_cosine(self, angle):
+    def cos(self, angle):
         """
         Calculates the cosine of a given angle in radians using the math.cos() function.
 
@@ -41,27 +41,16 @@ class InbuiltMath:
         else:
             return math.factorial(n)
 
-def main():
-    inbuilt_math = InbuiltMath()
-    angle_in_radians = math.pi / 4
-    try:
-        sine = inbuilt_math.calculate_sine(angle_in_radians)
-        cosine = inbuilt_math.calculate_cosine(angle_in_radians)
-        factorial = inbuilt_math.calculate_factorial(5)
-    except ValueError as e:
-        print("Error:", e)
-    else:
-        # Create the root element of the XML file
-        root = ET.Element("output")
+    def pi(self):
+        """
+        Returns an approximation of the value of pi using the math module.
 
-        # Add the sine, cosine, and factorial elements to the root
-        ET.SubElement(root, "sine").text = str(sine)
-        ET.SubElement(root, "cosine").text = str(cosine)
-        ET.SubElement(root, "factorial").text = str(factorial)
+        Returns:
+        float: An approximation of the value of pi.
+        """
+        try:
+            return math.pi
+        except AttributeError:
+            print("Error: math.pi is not defined")
+            return None
 
-        # Create the XML file
-        tree = ET.ElementTree(root)
-        tree.write("output.xml")
-
-if __name__ == '__main__':
-    main()
