@@ -1,4 +1,4 @@
-from InbuiltMath import InbuiltMath
+import math
 
 
 class Coasters_overlap:
@@ -20,8 +20,12 @@ class Coasters_overlap:
         to_string(self): returns a string representation of the Coasters_overlap object.
     """
 
+    pi = math.pi  # class variable
+    length = 0.0
+    r = 0.0
 
-    def raphson_method(self):
+    @staticmethod
+    def raphson_method():
         """
         Calculates the value of alpha using the Newton-Raphson method with 1000 iterations or if the error tolerance is
         reached
@@ -32,15 +36,15 @@ class Coasters_overlap:
             None.
         Set Object alpha value to the estimation of the root of -> alpha - sin(alpha) = pi/2.
         """
-        alpha = self.pi / 2  # initial guess
+        alpha = math.pi / 2  # initial guess
         alpha = alpha
         tolerance = 1e-6
 
         def f(a):
-            return a - self.sin - self.pi / 2
+            return a - math.sin(a) - math.pi / 2
 
         def f_derivative(a):
-            return 1 - self.cos
+            return 1 - math.cos(a)
 
         # Calculating alpha using newton Raphson method
         for i in range(1000):
@@ -50,9 +54,9 @@ class Coasters_overlap:
             alpha = alpha_new
         return alpha
 
+    alpha = raphson_method()  # class variable
 
-
-    def __init__(self,angle):
+    def __init__(self):
         """
         Initializes an instance of the HandmadeMath class.
         The value of pi is generated using Monte Carlo simulation.
@@ -60,14 +64,6 @@ class Coasters_overlap:
         radius r is asked to the user
         and the length is calculated from the other elements using the equation l= 2r(1-cos(alpha/2))
         """
-
-        angle = int(angle)
-        ob = InbuiltMath()
-        self.pi = ob.pi() # class variable
-        self.length = 0.0
-        self.r = 0.0
-        self.sin = ob.sin(angle)
-        self.cos = ob.cos(angle)
         while True:
             while True:
                 try:
@@ -80,8 +76,7 @@ class Coasters_overlap:
             else:
                 break
         self.r = r
-        self.alpha = self.raphson_method()  # class variable
-        self.length = 2 * self.r * (1 - ob.cos(self.alpha / 2))
+        self.length = 2 * self.r * (1 - math.cos(self.alpha / 2))
 
     def to_string(self):
         """
@@ -102,6 +97,6 @@ class Coasters_overlap:
     def get_length(self):
         return self.length
 
-
-    def get_pi(self):
-        return self.pi
+    @staticmethod
+    def get_pi():
+        return Coasters_overlap.pi

@@ -3,6 +3,7 @@ import Coasters_overlap
 
 # text file
 
+
 def main():
     try:
         file1 = open("output.txt", 'w')
@@ -16,7 +17,6 @@ def main():
     while True:
         while True:
             try:
-                angle = input("Enter the angle for sin and cos")
                 coasters_pair_amount = int(input("Please enter the number of coasters pair you want :"))
                 break
             except ValueError:
@@ -27,7 +27,7 @@ def main():
             break
 
     for i in range(coasters_pair_amount):
-        Coaster = Coasters_overlap.Coasters_overlap(angle)
+        Coaster = Coasters_overlap.Coasters_overlap()
         s = Coaster.to_string()
         r = str(Coaster.get_radius())
         L = str(Coaster.get_length())
@@ -50,6 +50,7 @@ def main():
         raise "Cannot open a file"
 
     print("Done! Check your output.txt and output.xml files for the results")
+
 
 if __name__ == "__main__":
     main()
