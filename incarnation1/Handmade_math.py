@@ -1,16 +1,12 @@
 class HandmadeMath:
 
-    @staticmethod
     def gregory_leibinz(iterations):
         """
            Calculates an estimate of the value of pi using gregory_leibinz method.
-
            Parameters:
                iterations (int): The number of iterations to do.
-
            Raises:
                Exception: if iterations is not a positive integer
-
            Returns:
                pi_estimate (float): The estimated value of pi.
         """
@@ -18,7 +14,7 @@ class HandmadeMath:
             raise Exception("input of gregory_leibinz needs to be a positive integer")
         pi = 0
         for x in range(0, iterations):
-            numerator = ((-1)**x) * (1**(2 * x + 1))
+            numerator = ((-1) ** x) * (1 ** (2 * x + 1))
             denominator = 2 * x + 1
             pi += numerator / denominator
         pi = pi * 4
@@ -30,13 +26,10 @@ class HandmadeMath:
     def factorial(x):
         """
         Calculates the factorial of x recursively.
-
         Parameters:
             x (int): The number whose factorial needs to be calculated.
-
         Raises:
             Exception: if x is not a positive integer or x is less than zero.
-
         Returns:
             factorial (int): The factorial of x calculated recursively.
         """
@@ -53,7 +46,7 @@ class HandmadeMath:
 
     @staticmethod
     def cos(x, n=15):
-        x = x % (2*HandmadeMath.pi)
+        x = x % (2 * HandmadeMath.pi)
         """
         Calculates the cosine of x using Taylor series with n (default = 10) elements.
         Parameters:
@@ -79,7 +72,7 @@ class HandmadeMath:
         Returns:
             result (float): The value of sine of x calculated using Taylor series
         """
-        x = x % (2*HandmadeMath.pi)
+        x = x % (2 * HandmadeMath.pi)
         result = 0
         sign = 1
         for i in range(1, 2 * n, 2):
