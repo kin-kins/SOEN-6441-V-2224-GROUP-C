@@ -24,8 +24,7 @@ class Coasters_overlap:
     length = 0.0
     r = 0.0
 
-    @staticmethod
-    def raphson_method():
+    def raphson_method(self):
         """
         Calculates the value of alpha using the Newton-Raphson method with 1000 iterations or if the error tolerance is
         reached
