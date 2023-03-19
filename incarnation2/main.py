@@ -1,19 +1,14 @@
 import xml.etree.ElementTree as ET
 import Coasters_overlap
 
-# text file
-try:
-    file1 = open("../incarnation2/output.txt", 'w')
-except (Exception,):
-    raise "Cannot open a txt file"
 
 try:
-    file2 = open("../incarnation2/Output.xml", 'wb')  # Opening a file, with operation mode `wb` (write + binary)
+    file2 = open("Output.xml", 'wb')  # Opening a file, with operation mode `wb` (write + binary) #../incarnation2/
 except (Exception,):
-    raise "Cannot open an xml file"
+    raise Exception("Cannot open an xml file")
 # xml file
 data = ET.Element('data')  # parent root element onto which other tags would be created
-element1 = ET.SubElement(data, "items")  # adding a subtag name items inside root tag
+element1 = ET.SubElement(data, "list")  # adding a subtag name items inside root tag
 
 while True:
     while True:
@@ -32,7 +27,6 @@ for i in range(coasters_pair_amount):
     s = Coaster.to_string()
     r = str(Coaster.get_radius())
     L = str(Coaster.get_length())
-    file1.write(f"r={r}, L={L}\n")
     s_elem = ET.SubElement(element1, f'item')  # adding subtag under the 'items'
     r_elem = ET.SubElement(s_elem, 'r')
     l_elem = ET.SubElement(s_elem, 'l')
@@ -48,4 +42,4 @@ b_xml = ET.tostring(data)  # Converting the xml data to byte object, for allowin
 file2.write(b_xml)
 
 
-print("Done! Check your output.txt and output.xml files for the results")
+print("Done! Check your output.xml file for the results")
