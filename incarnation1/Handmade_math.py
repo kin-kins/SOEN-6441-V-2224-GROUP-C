@@ -52,7 +52,8 @@ class HandmadeMath:
             return HandmadeMath.factorial(x - 1) * x
 
     @staticmethod
-    def cos(x, n=10):
+    def cos(x, n=15):
+        x = x % (2*HandmadeMath.pi)
         """
         Calculates the cosine of x using Taylor series with n (default = 10) elements.
         Parameters:
@@ -69,7 +70,7 @@ class HandmadeMath:
         return result
 
     @staticmethod
-    def sin(x, n=10):
+    def sin(x, n=15):
         """
         Calculates the sine of x using Taylor series with n (default = 10) elements.
         Parameters:
@@ -78,6 +79,7 @@ class HandmadeMath:
         Returns:
             result (float): The value of sine of x calculated using Taylor series
         """
+        x = x % (2*HandmadeMath.pi)
         result = 0
         sign = 1
         for i in range(1, 2 * n, 2):
