@@ -5,7 +5,7 @@ class Coasters_overlap:
     """
     A class that represents two overlapping coasters on a table.
     Class Attributes :
-            pi (float): the value of pi generated using Monte Carlo simulation.
+            pi (float): the value of pi generated the math library.
             alpha (float): the angle between the two coasters, in radians, calculated
                            using the Newton-Raphson method for alpha - sin(alpha) = pi/2.
     Instance Attributes:
@@ -18,6 +18,9 @@ class Coasters_overlap:
         raphson_method(self): calculates the value of alpha using the Newton-Raphson
             method with 1000 iterations or until the error tolerance is reached.
         to_string(self): returns a string representation of the Coasters_overlap object.
+        get_length(): return the instance length value
+        get_radius(): return the instance radius value
+        get_pi(): returns the class pi value
     """
 
     pi = math.pi  # class variable

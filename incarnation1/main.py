@@ -3,10 +3,14 @@ import Coasters_overlap
 
 # text file
 try:
-    file1 = open("../output.txt", 'w')
+    file1 = open("../incarnation1/output.txt", 'w')
 except (Exception,):
-    raise "Cannot open a file"
+    raise "Cannot open a txt file"
 
+try:
+    file2 = open("../incarnation1/output.xml", 'wb')  # Opening a file, with operation mode `wb` (write + binary)
+except (Exception,):
+    raise "Cannot open an xml file"
 # xml file
 data = ET.Element('data')  # parent root element onto which other tags would be created
 element1 = ET.SubElement(data, "items")  # adding a subtag name items inside root tag
@@ -40,10 +44,8 @@ b_xml = ET.tostring(data)  # Converting the xml data to byte object, for allowin
 # with open("output.xml", "wb") as f:  # Opening a file, with operation mode `wb` (write + binary)
 #     f.write(b_xml)
 
-try:
-    file2 = open("../Output.xml", 'wb')  # Opening a file, with operation mode `wb` (write + binary)
-    file2.write(b_xml)
-except (Exception,):
-    raise "Cannot open a file"
+
+file2.write(b_xml)
+
 
 print("Done! Check your output.txt and output.xml files for the results")

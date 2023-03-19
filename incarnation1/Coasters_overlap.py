@@ -5,7 +5,7 @@ class Coasters_overlap:
     """
     A class that represents two overlapping coasters on a table.
     Class Attributes :
-            pi (float): the value of pi generated using Monte Carlo simulation.
+            pi (float): the value of pi generated using Leibniz formula for Pi.
             alpha (float): the angle between the two coasters, in radians, calculated
                            using the Newton-Raphson method for alpha - sin(alpha) = pi/2.
     Instance Attributes:

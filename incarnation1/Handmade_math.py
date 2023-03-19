@@ -1,43 +1,30 @@
-import random
-
-
 class HandmadeMath:
 
     @staticmethod
-    def estimate_pi(n):
+    def gregory_leibinz(iterations):
         """
-        Calculates an estimate of the value of pi using Monte Carlo simulation.
+           Calculates an estimate of the value of pi using gregory_leibinz method.
 
-        Parameters:
-            n (int): The number of points to be generated for the simulation.
+           Parameters:
+               iterations (int): The number of iterations to do.
 
-        Raises:
-            Exception: if n is not a positive integer
+           Raises:
+               Exception: if iterations is not a positive integer
 
-        Returns:
-            pi_estimate (float): The estimated value of pi.
+           Returns:
+               pi_estimate (float): The estimated value of pi.
         """
-        if not (type(n) == int):
-            raise Exception("input of estimate_pi needs to be a positive integer")
-        # Initialize a counter to keep track of the number of points that fall inside the unit circle
-        num_points_inside_circle = 0
-        # Loop through n times to generate n random points and check if each point falls inside the unit circle
-        for estimate in range(n):
-            # Generate a random x-coordinate and y-coordinate between 0 and 1
-            x = random.uniform(0, 1)
-            y = random.uniform(0, 1)
-            # Calculate the squared distance from the origin to the point
-            distance_squared = x ** 2 + y ** 2
-            # Check if the point falls inside the unit circle (distance from origin <= 1)
-            if distance_squared <= 1:
-                # If the point is inside the unit circle, increment the counter
-                num_points_inside_circle += 1
-        # Calculate the estimated value of pi using the ratio of the number
-        # of points inside the circle to the total number of points
-        pi_estimate = 4 * num_points_inside_circle / n
-        return pi_estimate
+        if (not (type(iterations) == int)) or iterations < 1:
+            raise Exception("input of gregory_leibinz needs to be a positive integer")
+        pi = 0
+        for x in range(0, iterations):
+            numerator = ((-1)**x) * (1**(2 * x + 1))
+            denominator = 2 * x + 1
+            pi += numerator / denominator
+        pi = pi * 4
+        return pi
 
-    pi = estimate_pi(1000000)
+    pi = gregory_leibinz(1000000)
 
     @staticmethod
     def factorial(x):
