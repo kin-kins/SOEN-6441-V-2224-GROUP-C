@@ -1,4 +1,6 @@
 from Handmade_math import HandmadeMath
+
+
 class Coasters_overlap:
     """
     A class that represents two overlapping coasters on a table.
@@ -22,6 +24,7 @@ class Coasters_overlap:
     length = 0.0
     r = 0.0
 
+    @staticmethod
     def raphson_method():
         """
         Calculates the value of alpha using the Newton-Raphson method with 1000 iterations or if the error tolerance is
@@ -50,7 +53,6 @@ class Coasters_overlap:
                 break
             alpha = alpha_new
         return alpha
-
 
     alpha = raphson_method()  # class variable
 
